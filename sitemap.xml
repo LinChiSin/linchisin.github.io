@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://linchisin.com/404/404.html</loc>
+    
+    <lastmod>2017-03-21T13:53:50.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://linchisin.com/404.html</loc>
+    
+    <lastmod>2017-03-21T13:53:50.581Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://linchisin.com/about.html</loc>
     
     <lastmod>2017-03-21T13:38:40.395Z</lastmod>
@@ -16,23 +30,9 @@
   </url>
   
   <url>
-    <loc>http://linchisin.com/404.html</loc>
-    
-    <lastmod>2017-03-21T12:20:42.610Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://linchisin.com/about/index.html</loc>
     
     <lastmod>2017-03-21T11:58:23.490Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://linchisin.com//404.html</loc>
-    
-    <lastmod>2017-03-21T11:49:58.626Z</lastmod>
     
   </url>
   
