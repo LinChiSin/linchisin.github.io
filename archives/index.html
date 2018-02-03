@@ -91,7 +91,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/文摘/" class="animsition-link">文摘<small>(3)</small></a></li>
+				    <li><a href="/categories/文摘/" class="animsition-link">文摘<small>(2)</small></a></li>
 				    
 				    <li><a href="/categories/随笔/" class="animsition-link">随笔<small>(7)</small></a></li>
 				    
@@ -132,6 +132,12 @@
         <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
 
         <!-- ============================ Header & Logo bar =========================== -->
+<link rel="stylesheet" href="/fa-brands/css/fa-brands.min.css">
+<link rel="stylesheet" href="/fa-regular/css/fa-regular.min.css">
+<link rel="stylesheet" href="/fa-solid/css/fa-solid.min.css">
+<link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="/fontawesome-all/css/fontawesome-all.css">
+<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 
         <div id="navigation" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
@@ -150,7 +156,7 @@
                             <li><a href="/" class="animsition-link"><span>LinChiSin </span></a></li>
                             <li class="nolink"><span>Life is old</span></li>
                             
-                            <li><a href="https://github.com/LinChiSin" title="GitHub" target="_blank"><i class="icon-github"></i></a></li>
+                            <li><a href="https://github.com/LinChiSin" title="GitHub" target="_blank"><i class="fab fa-github"></i></a></li>
                             
                             
                             <li><a href="https://twitter.com/LinChiSin" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
@@ -235,9 +241,9 @@
                         
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
                             
-                              <h4 class="title"><a href="/2017/03/21/the-price/">鲸书|代价</a></h4>
+                              <h4 class="title"><a href="/2017/03/26/the-price/"></a></h4>
                             
-                            <p><time datetime="2017-03-20T16:00:00.000Z"><a href="/2017/03/21/the-price/">2017-03-21</a></time></p>
+                            <p><time datetime="2017-03-26T14:03:28.794Z"><a href="/2017/03/26/the-price/">2017-03-26</a></time></p>
                         </div>
                     
                         
@@ -345,7 +351,7 @@
             <div class="social">
                 <ul>
                     
-                    <li><a href="https://github.com/LinChiSin" title="GitHub" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    <li><a href="https://github.com/LinChiSin" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>&nbsp;</li>
                     
                     
                     <li><a href="https://twitter.com/LinChiSin" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
@@ -397,6 +403,35 @@
       });
     });
 </script>
+      
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
 
 </body>
 </html>
