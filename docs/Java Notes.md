@@ -1,9 +1,9 @@
 
-#集合框架（Collection）
+# 集合框架（Collection）
 Collection(extends Iterable)、List（ArrayList、LinkedList、Vector）、Set（SortedSet）、Queue(Deque)、Map（SortedMap）
 
 
-##ArrayList、Vector、LinkedList区别
+## ArrayList、Vector、LinkedList区别
 
 都实现了List<E>接口，可从原理、多线程安全性、速度、实现方式、容量与扩容等几个方面比较不同：
 
@@ -13,7 +13,7 @@ Collection(extends Iterable)、List（ArrayList、LinkedList、Vector）、Set�
 4. 容量与扩容：ArrayList的初始容量为10，此后扩容方式为：` int newCapacity = oldCapacity + (oldCapacity >> 1);`，即增加原有容量的50%；Vector在使用不指定初始容量的情况下，初始容量也为10，但此后的扩容方式为：` int newCapacity = oldCapacity + ((capacityIncrement > 0) ? capacityIncrement : oldCapacity);`，即在原有的基础上增加一倍。ArrayList和Vector的最大容量均为`Integer.MAX_VALUE-8`；LinkedList采用链表实现，因此实时增加。
 
 
-##HashMap与Hashtable的区别
+## HashMap与Hashtable的区别
 
 都实现了 Map <K, V\>接口，可从内容、多线程安全性、遍历、速度、同步和hash数组几个方面比较不同：
 
@@ -33,14 +33,14 @@ Collection(extends Iterable)、List（ArrayList、LinkedList、Vector）、Set�
 
 7. Hashtable的哈希值是直接使用Key的.hashCode()，而HashMap则是使用了`h = key.hashCode()) ^ (h >>> 16)`在原有hashCode()的基础上再进行按位与运算
 
-##ConcurrentHashMap
+## ConcurrentHashMap
 
 背景：HashMap 不安全，一个解决方案是Hashtable，使用Synchronized同步，但是该方式效率较低，如果在线程过多，单一锁的方式会极大地降低运行效率。Java 1.5推出了ConcurrentHashMap，作为Hashtable的代替，它使用分段锁的思想，对数据进行分段(Segments)加锁，这样能使得需要不同数据时分发不同的锁，提升效率。(和Hashtable类似， 不允许<null, null\>)
 
 重点：ConcurrentHashMap的一些更新操作如 put(),remove(),putAll(),clear()只锁住操作的部分，所以在检索操作不能保证返回最新的结果（解决办法：putIfAbsent(key,value)避免上面的线程竞争）;
 另一个重要点是在迭代遍历CHM时，keySet返回的iterator是弱一致和fail-safe的，可能不会返回某些最近的改变，并且在遍历过程中，如果已经遍历的数组上的内容变化了，不会抛出ConcurrentModificationExceptoin的异常。
 
-##Collections.SynchronizedMap(HashMap)
+## Collections.SynchronizedMap(HashMap)
 
 + 在 Object 级别的锁
 + 每次的 读/写 操作都要求获得锁，性能较差
@@ -51,39 +51,39 @@ Collection(extends Iterable)、List（ArrayList、LinkedList、Vector）、Set�
 
 
 
-###补充：Enumeration(枚举类)和 Iterator（迭代器） 
+### 补充：Enumeration(枚举类)和 Iterator（迭代器） 
 
 Enumeration(枚举类)和 Iterator（迭代器） 的区别在于，Enumeration只有两个函数接口（hasMoreElements和nextElement），只能用于读取集合的数据，而不能对数据进行修改；而Iterator有三个函数接口（hasNext()，next()，remove()），也就是说Iterator除了能读取集合的数据之外，还能进行数据删除操作。 Enumeration用于Vector和Hashtable，本身不支持同步，Vector、Hashtable在实现Enumeration时，添加了同步。 而Iterator是为了Hashmap 和 ArrayList等集合提供了遍历接口，支持fail-fast机制：当多个线程对同一集合进行操作时，就可能产生fail-fast事件。
 
 
 
-##LinkedHashMap 
+## LinkedHashMap 
 
 + 双链表（前后指针）+哈希表，有序存放哈希内容（按照插入顺序），三个重点实现的函数（afterNodeAccess()、afterNodeInsertion()、afterNodeRemoval()为了保证双向链表中的节点次序或者双向链表容量）
 
 + 当选择accessOrder时，且此时迭代器Iterator中执行put和get操作时（remove() 方法除外），就会产生structural modification，也会造成CurrentModificarionException）。
 
 
-#多线程
+# 多线程
 
-##多线程的实现方式：
+## 多线程的实现方式：
 1. 继承Thread类，重写run方法，没有返回值，不能抛出异常，且只能单一继承；
 2. 实现Runnable接口，重写run方法，没有返回值，不能抛出异常，可以实现多个接口；
 3. 实现Callable接口，重写call方法，可以返回值和抛出异常
 
 
-#Object类
+# Object类
 
 Object的构造方法
 Object类的方法总结：
 
-##equals(). hashCode()总结
+## equals(). hashCode()总结
 
-##重写equals()方法的要求
+## 重写equals()方法的要求
 
-##重写hashCode()方法的一般方法
+## 重写hashCode()方法的一般方法
 
-#Java IO
+# Java IO
 
 ## 序列化与反序列化
 
@@ -126,7 +126,7 @@ Object类的方法总结：
 7. 服务器端给客户端发送序列化对象数据，对象中有一些数据是敏感的，比如密码字符串等，希望对该密码字段在序列化时，进行加密，而客户端如果拥有解密的密钥，只有在客户端进行反序列化时，才可以对密码进行读取，这样可以一定程度保证序列化对象的数据安全。
 
 
-###序列化与反序列化总结
+### 序列化与反序列化总结
 
 1. 如果一个类想被序列化，需要实现Serializable接口。否则将抛出NotSerializableException异常，这是因为，在序列化操作过程中会对类型进行检查，要求被序列化的类必须属于Enum、Array和Serializable类型其中的任何一种。
 
