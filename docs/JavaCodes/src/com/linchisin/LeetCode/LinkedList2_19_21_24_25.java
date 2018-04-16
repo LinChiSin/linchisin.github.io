@@ -5,25 +5,19 @@ import java.util.Stack;
 public class LinkedList2_19_21_24_25 {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        System.out.println("链表个数：");
         while(scanner.hasNext()){
-            int n=scanner.nextInt();
-            ListNode[]lists=new ListNode[n];
-            System.out.println("各自链表信息：");
-            for (int i = 0; i <n ; i++) {
-                System.out.println("链表"+i+"中元素个数：");
-                int m=scanner.nextInt();
-                int list1[]=new int[m];
-                list1[0]=scanner.nextInt();
-                ListNode head1=createLinkedList(new ListNode(list1[0]));
-                for (int j= 1; j <m ; j++) {
-                    list1[j]=scanner.nextInt();
-                    head1=addNodeAtEnd(head1,new ListNode(list1[j]));
-                }
-                lists[i]=head1;
-                printLinkedList(head1);
-            }
-            printLinkedList(mergeKLists(lists));
+//            int m=scanner.nextInt();
+//            int list1[]=new int[m];
+//            list1[0]=scanner.nextInt();
+//            ListNode head1=createLinkedList(new ListNode(list1[0]));
+//            for (int j= 1; j <m ; j++) {
+//                list1[j]=scanner.nextInt();
+//                head1=addNodeAtEnd(head1,new ListNode(list1[j]));
+//            }
+            ListNode head1=null;
+            printLinkedList(head1);
+            printLinkedList(reverseLinkedList(head1));
+        }
 
 
 
@@ -45,7 +39,6 @@ public class LinkedList2_19_21_24_25 {
 //
 //            ListNode head3=mergeTwoLists(head1,head2);
 //            printLinkedList(head3);
-        }
     }
 
     //创建空链表，返回头结点
@@ -124,8 +117,11 @@ public class LinkedList2_19_21_24_25 {
     public static void printLinkedList(ListNode head,boolean dir){
 
         ListNode listNode=head;
-        if(listNode==null)
+        if(listNode==null){
             System.out.println("链表为空");
+            return;
+        }
+
         if(dir){ //正向打印
             while(listNode!=null){
                 System.out.print(listNode.val+"->");
@@ -276,6 +272,30 @@ public class LinkedList2_19_21_24_25 {
         head1=mergeKListsRecursive(lists,start,mid);
         head2=mergeKListsRecursive(lists,mid+1,end);
         return mergeTwoLists(head1,head2);
+    }
+
+    /*
+    思路：链表调整过程中需要记录以下几个结点：prev、node、nextNode、nextNextNode, 注意最后应当返回prev
+    复杂度：O(n)
+    特殊输入：链表为空，链表仅有一个
+     */
+
+    private static ListNode reverseLinkedList(ListNode head){
+       if(head==null)
+           return null;
+       ListNode listNode=head;
+       ListNode prev=null;
+       ListNode nextNode=listNode.next;
+       while(nextNode!=null){
+           listNode.next=prev;
+           ListNode nextNextNode=nextNode.next;
+           prev=listNode;
+           listNode=nextNode;
+           nextNode=nextNextNode;
+       }
+       listNode.next=prev;
+       prev=listNode;
+       return prev;
     }
 
 }
