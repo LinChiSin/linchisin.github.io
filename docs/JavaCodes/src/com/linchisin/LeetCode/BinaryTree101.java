@@ -84,6 +84,7 @@ public class BinaryTree101 {
     /*
   思路：非递归实现后序遍历，利用堆栈及其FILO性质
   技巧： 要求输出顺序为（左-右-中，则可以利用（中-右-左）翻转实现，而（中-右-左）又可以通过前序遍历（非递归）实现（即与正常的前序遍历相反，左结点比右结点先入栈）
+  复杂度: TC O(n)，SC O（n）//两个堆栈
   特殊输入：root本身为空
   */
     private static void postOrderTraverse(TreeNode root) {
@@ -105,6 +106,47 @@ public class BinaryTree101 {
         while (!reverseStack.isEmpty())
             System.out.print(reverseStack.pop().val+" ");
     }
+
+    /*
+    后序遍历，非递归实现，不依赖第二个堆栈
+    思路：判断上次访问的节点是位于左子树，还是右子树。
+         若是位于左子树，则需跳过根节点，先进入右子树，再回头访问根节点
+         若是位于右子树，则直接访问根节点
+         因此需要两个指针记录当前访问的结点currentNode和上次访问的结点LastNode
+     */
+
+    private static void postOrderTraverseWithOneStack(TreeNode root){
+        if(root==null)
+            return;
+        TreeNode currentNode=root;
+        TreeNode lastNode=null;
+        Stack<TreeNode>stack=new Stack<>();
+
+        //把currentNode移至左子树最下边
+        while(currentNode!=null){
+            stack.push(currentNode);
+            currentNode=currentNode.left;
+        }
+        //外层大循环，要求栈内不空
+        while(!stack.isEmpty()){
+            currentNode=stack.pop();
+            //根节点被访问的前提：无右子树或者右子树已经被访问
+            if(currentNode.right!=null&&currentNode.right!=lastNode){
+                stack.push(currentNode);
+                //此时再判断右子树是否为空，若空，直接返回，如不空，则进入右子树的左子树
+                currentNode=currentNode.right;
+                while(currentNode!=null){
+                    stack.push(currentNode);
+                    currentNode=currentNode.left;
+                }
+            }else{  //右子树为空，直接输出
+                System.out.print(currentNode.val+" ");
+                lastNode=currentNode;
+            }
+        }
+    }
+
+
 
     /*
     后序遍历，递归实现
