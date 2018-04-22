@@ -86,7 +86,7 @@ public class GenerateParentheses22 {
 
 
     public static List<String> generateParenthesisHelper(int n) {
-        List<String> list = new ArrayList<>();hexo
+        List<String> list = new ArrayList<>();
         helper(list, "", 0, n);
         return list;
     }
@@ -287,4 +287,7 @@ public class GenerateParentheses22 {
             return getFactorial(n-1)*n;
         }
     }
+
+
+
 }

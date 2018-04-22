@@ -28,13 +28,17 @@ public class LetterCombination17 {
     }
 
     private static void backtracking(List<String> list, String digits, String ans) {
-        if(ans.length()==digits.length()){
+        if(ans.length()==digits.length()){   //递归的结束条件
             list.add(ans);
             return ;
         }
-        for(char c: map[digits.charAt(ans.length())-'2'].toCharArray()){
+        for(char c: map[digits.charAt(ans.length())-'2'].toCharArray()){ //回溯与深搜机制（深搜：ans+c，回溯，列举）
             backtracking(list,digits,ans+c);
         }
     }
+
+
+
+
 
 }

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class CombinationSum39 {
+public class CombinationSum39_40 {
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
         while(scanner.hasNextInt()){
@@ -15,9 +15,66 @@ public class CombinationSum39 {
                 candidates[i]=scanner.nextInt();
             }
             int target=scanner.nextInt();
-            System.out.println(combinationSum(candidates,target));
+            System.out.println(combinationSum2(candidates,target));
         }
     }
+    /*
+    思路：
+    递归（树的深度优先搜索）、回溯、剪枝、去重
+    递归的结束条件是，target==0,将临时集中加入到结果集中
+    剪枝的思路是先排序（数字的大小按规则排放），然后判断目标值是否大于现有值，如果已经大于则不再继续，即剪枝
+    回溯的思路是去除临时集中的最后一个元素
+    外层遍历则是遍历足够多的树
+    去重的思路是：遍历从下一个元素开始，不再重复从本元素进入。同时，根据题意，即使两个数字位置不同，元素个数仍然相同，也记作重复，因此需要判断前后元素是否相等
+    复杂度：本质上是暴力搜索
+    特殊输入：原始数组为空，无法组成无解
+
+     */
+    private static List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>>result=new ArrayList<>();
+        List<Integer>temp=new ArrayList<>();
+        Arrays.sort(candidates); //排序数组，用于剪枝
+        //最后一个参数用于遍历
+        dfsWithoutDuplicates(result,temp,candidates,target,0);
+        return result;
+
+
+    }
+
+    private static void dfs(List<List<Integer>> result, List<Integer> temp, int[] candidates, int target, int i) {
+        //递归的结束条件
+        if(target==0){
+            result.add(new ArrayList<>(temp));
+        }
+        //递归过程
+        for(int j=i;j<candidates.length&&target>=candidates[j];j++){
+            temp.add(candidates[j]);
+            dfs(result,temp,candidates,target-candidates[j],j);
+            temp.remove(temp.size()-1);
+        }
+    }
+
+    private static void dfsWithoutDuplicates(List<List<Integer>> result, List<Integer> temp, int[] candidates, int target, int i) {
+        //递归的结束条件
+        if(target==0){
+            result.add(new ArrayList<>(temp));
+        }
+        //递归过程：持续向树的底层搜索
+        for(int j=i+1;j<candidates.length&&target>=candidates[j];j++){  //去重
+            if(candidates[j]!=candidates[j-1]){
+                temp.add(candidates[j]);
+                dfsWithoutDuplicates(result,temp,candidates,target-candidates[j],j);
+                temp.remove(temp.size()-1);
+            }
+        }
+    }
+
+
+
+
+
+
+
 
     /*
     思路：Naive算法:给定数字为n，考虑1到n个数字的和，转化nSum问题
@@ -89,4 +146,8 @@ public class CombinationSum39 {
             result.add(new ArrayList<Integer>(current));
         }
     }
+
+
+
+
 }

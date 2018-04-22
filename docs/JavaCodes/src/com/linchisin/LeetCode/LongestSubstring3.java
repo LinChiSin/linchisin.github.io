@@ -76,6 +76,7 @@ public class LongestSubstring3 {
     public static int lengthOfLongestSubstring(String s) {
         if(s.length()==0)
             return 0;
+
         int []hash=new int[128];
         int preP=0;
         int max=0;

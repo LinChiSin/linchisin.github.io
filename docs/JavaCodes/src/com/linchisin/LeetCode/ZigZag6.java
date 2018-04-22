@@ -12,7 +12,9 @@ public class ZigZag6 {
         }
     }
 
+
     private static String convert(String s, int numRows) {
+        String s1=String.valueOf(123);
         int Stringlength=s.length();
         if(Stringlength==0||numRows==1)
             return s;

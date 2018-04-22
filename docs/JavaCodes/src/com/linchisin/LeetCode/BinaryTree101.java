@@ -1,6 +1,8 @@
 package com.linchisin.LeetCode;
 
 
+import sun.reflect.generics.tree.Tree;
+
 import java.util.*;
 
 public class BinaryTree101 {
@@ -35,10 +37,11 @@ public class BinaryTree101 {
 //        midOrderTraverseRec(node1);
 //        midOrderTraverse(node1);
 //        postOrderTraverseRec(node1);
-//        postOrderTraverse(node1);
-        System.out.println(preOrderTraverseString(node1));
-        System.out.println(preOrderReverseTraverseString(node1));
-        System.out.println(isSymmetric(node1));
+        postOrderTraverse(node1);
+//        System.out.println(preOrderTraverseString(node1));
+//        System.out.println(preOrderReverseTraverseString(node1));
+//        System.out.println(isSymmetric(node1));
+//        System.out.println(inorderTraversal(node1));
 
 
 
@@ -68,6 +71,46 @@ public class BinaryTree101 {
             System.out.print(treeNode.val+" ");
             treeNode=treeNode.right;  //处理右子树
         }
+    }
+
+    /*
+    LeetCode 144题，非递归前序遍历，白板编程
+     */
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if(root==null) return Collections.emptyList();
+        List<Integer>result=new ArrayList<>();
+        Stack<TreeNode>stack=new Stack<>();
+        TreeNode node=root;
+        stack.push(node);
+        while(!stack.isEmpty()){
+            node=stack.pop();
+            result.add(node.val);
+            if(node.right!=null) stack.push(node.right);
+            if(node.left!=null) stack.push(node.left);
+        }
+        return result;
+    }
+
+    /*
+    LeetCode 94题，非递归中序遍历，白板编程
+     */
+    public static List<Integer> inorderTraversal(TreeNode root) {
+        if(root==null) return Collections.emptyList();
+        List<Integer> result=new ArrayList<>();
+        Stack<TreeNode>stack=new Stack<>();
+        TreeNode node=root;
+        while(true){
+            while(node!=null){
+                stack.push(node);
+                node=node.left;
+            }
+            if(stack.isEmpty()) break;
+            node=stack.pop();
+            result.add(node.val);
+            node=node.right;
+        }
+        return result;
+
     }
 
     /*
@@ -105,6 +148,7 @@ public class BinaryTree101 {
         }
         while (!reverseStack.isEmpty())
             System.out.print(reverseStack.pop().val+" ");
+//        for(TreeNode node: reverseStack) System.out.print(node.val+"");  //注意这样是反序输出
     }
 
     /*
@@ -131,6 +175,7 @@ public class BinaryTree101 {
         while(!stack.isEmpty()){
             currentNode=stack.pop();
             //根节点被访问的前提：无右子树或者右子树已经被访问
+            //右子树:右结点不为空，并且当前节点的右结点不是上次访问的结点
             if(currentNode.right!=null&&currentNode.right!=lastNode){
                 stack.push(currentNode);
                 //此时再判断右子树是否为空，若空，直接返回，如不空，则进入右子树的左子树
@@ -139,7 +184,7 @@ public class BinaryTree101 {
                     stack.push(currentNode);
                     currentNode=currentNode.left;
                 }
-            }else{  //右子树为空，直接输出
+            }else{  //无右子树或者右子树已经被访问
                 System.out.print(currentNode.val+" ");
                 lastNode=currentNode;
             }
@@ -373,6 +418,18 @@ public class BinaryTree101 {
          String s2=preOrderTraverseString(root.left);
          String s3=preOrderTraverseString(root.right);
          return s1+s2+s3;
+    }
+
+
+    public static int sumOfLeftLeaves(TreeNode root){
+         if(root==null)
+             return 0;
+         if(root.left==null&&root.right==null) return 0;
+
+         if(root.left==null) return sumOfLeftLeaves(root.right);
+         int leftNum=(root.left.left==null&&root.left.right==null)?root.left.val:sumOfLeftLeaves(root.left);
+         int rightNum=root.right!=null?sumOfLeftLeaves(root.right):0;
+         return rightNum+leftNum;
     }
 
 
