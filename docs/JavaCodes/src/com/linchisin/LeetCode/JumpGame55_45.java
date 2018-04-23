@@ -13,7 +13,7 @@ import java.util.Scanner;
 输出一行，表示最少跳跃的次数。
  */
 
-public class JumpGameII45 {
+public class JumpGame55_45 {
     public static void main(String[] args) {
         Scanner scanner= new Scanner(System.in);
         while (scanner.hasNext()){
@@ -22,7 +22,7 @@ public class JumpGameII45 {
             for (int i = 0; i <n ; i++) {
                 nums[i]=scanner.nextInt();
             }
-            System.out.println(jump2(nums));
+            System.out.println(canJump(nums));
         }
     }
 
@@ -101,6 +101,23 @@ public class JumpGameII45 {
               }
           }
           return step;
+      }
+
+      /*
+       题目描述：判断是否能到达最右
+       思路：贪心，判断当前位置能到达的最远距离，当最远距离大于等于(n-1),直接返回true
+       特殊情况：nums=[0],nums为空
+       */
+      public static boolean canJump(int []nums){
+          if(nums.length==0) return false;
+          int largest=nums[0];
+          int i=1;
+          while (largest>=i&&i<nums.length-1){  //此处判断是否还能继续前进
+              largest=largest<i+nums[i]?i+nums[i]:largest;
+              if(largest>=nums.length-1) return true;
+              i++;
+          }
+          return largest>=nums.length-1;   //此处不能直接返回false，而是应当再判断
       }
 
 
