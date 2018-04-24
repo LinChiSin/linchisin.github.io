@@ -7,17 +7,14 @@ import java.util.HashMap;
 public class TestApi {
     public static void main(String[] args) {
 
-
-        char[]chars="cba".toCharArray();
-        Arrays.sort(chars);
-        for (int i = 0; i <chars.length; i++) {
-            System.out.print(chars[i]);
+   int [][]nums=new int[1][1];
+   nums[0][0]=2;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                System.out.print(nums[i][j]);
+            }
+            System.out.println();
         }
-        String charString=chars.toString();
-        String charString2=new String(chars);
-        System.out.println(charString);
-        System.out.println(charString2);
-
 
 
     }

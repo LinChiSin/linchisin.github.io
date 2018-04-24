@@ -2,16 +2,19 @@ package com.linchisin.LeetCode;
 
 import java.util.*;
 
-public class Permutations46_47 {
+public class Permutations46_47_60 {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         while(scanner.hasNextInt()){
+//            int n=scanner.nextInt();
+//            int []nums=new int[n];
+//            for (int i = 0; i <n; i++) {
+//                nums[i]=scanner.nextInt();
+//            }
+//            System.out.println(permute(nums));
             int n=scanner.nextInt();
-            int []nums=new int[n];
-            for (int i = 0; i <n; i++) {
-                nums[i]=scanner.nextInt();
-            }
-            System.out.println(permute(nums));
+            int k=scanner.nextInt();
+            System.out.println(getPermutation(n,k));
         }
     }
 
@@ -91,9 +94,108 @@ public class Permutations46_47 {
     }
 
 
+
+
+    /*
+    题意描述：求n!排列中第k个排列
+    思路：找规律？
+        或者是迭代求NextPermutation(), 复杂度
+    复杂度：TC：O（n），SC:O(n)
+    特殊输入：（k<=n!）
+
+     */
+
+
+    public static String getPermutation(int n,int k){
+        List<Integer>list=new ArrayList<>();
+        for (int i = 1; i<= n; i++) {
+            list.add(i);
+        }
+        k=k-1;
+        int m=getFactorial(n);
+        StringBuilder stringBuilder=new StringBuilder();
+        while(k!=0){
+            m=m/n;
+            n--;
+            stringBuilder.append(list.get(k/m));
+            list.remove(k/m);
+            k=k%m;
+        }
+        for (Integer aList : list) {
+            stringBuilder.append(aList);
+        }
+       return stringBuilder.toString();
+    }
+
+    //计算n！阶乘
+    public static int getFactorial(int n){
+        if(n==0)
+            return 1;
+        else{
+            return getFactorial(n-1)*n;
+        }
+    }
+
+
+    public static String getPermutationIteration(int n,int k){
+
+        int []nums=new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i]=i+1;
+        }
+        for (int i = 0; i < k-1; i++) {
+            nextPermutation(nums);
+        }
+        StringBuilder stringBuilder=new StringBuilder();
+        for (int i = 0; i <n; i++) {
+            stringBuilder.append(nums[i]);
+        }
+        return stringBuilder.toString();
+    }
+
+
+    private static void nextPermutation(int[] nums) {
+        int i=nums.length-2;
+        int j,k,index;
+        while(i>=0){              //找出不再呈降序排列的第一个数
+            if(nums[i]<nums[i+1])  //注意此处：不能是小于等于，只能是小于。（反例：2,2，2,2）
+                break;
+            i--;
+        }
+        if(i<0){
+            reverse(nums,0,nums.length-1);  //原始数组已经完全降序排列，直接反转全部数组
+        }else{
+            j=i;            //从找出比nums[i]大的第一个数
+            k=nums[i+1];
+            index=i+1;
+            while(j<=nums.length-2){
+                if(nums[j+1]>nums[i]){
+                    if(k>=nums[j+1]){  //注意此处：不能是大于，只能是大于等于，否则不能构成k后边为降序排列
+                        k=nums[j+1];
+                        index=j+1;
+                    }
+                }
+                j++;
+            }
+            swap(nums,i,index);
+            reverse(nums,i+1,nums.length-1);
+        }
+    }
+
+    /*
+    交换数组中第i位和第j位
+     */
     private static void swap(int[] nums, int i, int j) {
         int temp=nums[j];
         nums[j]=nums[i];
         nums[i]=temp;
+    }
+    /*
+    将数组中第i位到第j位反转
+     */
+    private static void reverse(int[] nums, int i, int j) {
+        for (int k = 0; k <=(j-i)>>1 ; k++) {
+            swap(nums,i+k,j-k);
+        }
     }
 }

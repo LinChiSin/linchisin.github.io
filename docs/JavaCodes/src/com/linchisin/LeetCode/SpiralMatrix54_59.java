@@ -5,20 +5,56 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class SpiralMatrix54 {
+public class SpiralMatrix54_59 {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         while(scanner.hasNextInt()){
-            int m=scanner.nextInt();
+//            int m=scanner.nextInt();
+//            int n=scanner.nextInt();
+//            int[][]matrix=new int[m][n];
+//            for (int i = 0; i < m; i++) {
+//                for (int j = 0; j <n; j++) {
+//                    matrix[i][j]=scanner.nextInt();
+//                }
+//            }
+//            System.out.println(spiralOrder(matrix));
             int n=scanner.nextInt();
-            int[][]matrix=new int[m][n];
-            for (int i = 0; i < m; i++) {
-                for (int j = 0; j <n; j++) {
-                    matrix[i][j]=scanner.nextInt();
+            int [][]matrix=generateMatrix(n);
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    System.out.print(matrix[i][j]+ " ");
                 }
+                System.out.println();
             }
-            System.out.println(spiralOrder(matrix));
         }
+    }
+    /*
+     思路：仍然是找规律
+     */
+    private static int[][] generateMatrix(int n) {
+        int[][]matrix=new int[n][n];
+        //层数
+        int level=(int)Math.ceil((double)n/2);
+        int i,j,k=1;
+        for (i = 0; i < level; i++) {
+            //上行
+            for (j = 0; j < n - 2 * i; j++) {
+                matrix[i][i+j]=k++;
+            }
+            //右列
+            for (j = 0; j <n-2*i-1; j++) {
+                matrix[i+1+j][n-1-i]=k++;
+            }
+            //下行
+            for (j = 0; j < n-2*i-1; j++) {
+                matrix[n-1-i][n-2-i-j]=k++;
+            }
+            //左列
+            for (j = 0; j < n - 2 * i - 2; j++) {
+                matrix[n-2-i-j][i]=k++;
+            }
+        }
+        return matrix;
     }
 
     /*
