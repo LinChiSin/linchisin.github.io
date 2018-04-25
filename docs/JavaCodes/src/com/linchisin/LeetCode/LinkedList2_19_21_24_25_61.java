@@ -2,21 +2,21 @@ package com.linchisin.LeetCode;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class LinkedList2_19_21_24_25 {
+public class LinkedList2_19_21_24_25_61 {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        while(scanner.hasNext()){
-//            int m=scanner.nextInt();
-//            int list1[]=new int[m];
-//            list1[0]=scanner.nextInt();
-//            ListNode head1=createLinkedList(new ListNode(list1[0]));
-//            for (int j= 1; j <m ; j++) {
-//                list1[j]=scanner.nextInt();
-//                head1=addNodeAtEnd(head1,new ListNode(list1[j]));
-//            }
-            ListNode head1=null;
-            printLinkedList(head1);
-            printLinkedList(reverseLinkedList(head1));
+        while(scanner.hasNextInt()){
+            int m=scanner.nextInt();
+            int list1[]=new int[m];
+            list1[0]=scanner.nextInt();
+            ListNode head=createLinkedList(new ListNode(list1[0]));
+            for (int j= 1; j <m ; j++) {
+                list1[j]=scanner.nextInt();
+                head=addNodeAtEnd(head,new ListNode(list1[j]));
+            }
+            int k=scanner.nextInt();
+            printLinkedList(head);
+            printLinkedList(rotateRight(head,k));
         }
 
 
@@ -40,6 +40,47 @@ public class LinkedList2_19_21_24_25 {
 //            ListNode head3=mergeTwoLists(head1,head2);
 //            printLinkedList(head3);
     }
+
+
+    /*
+    描述：循环右移链表k次
+    思路：链表循环右移：遍历链表，统计链表节点个数，并找到尾结点及其上一节点，使尾结点指向头结点，并置尾结点的上一节点指向null,返回尾结点作为头结点
+    复杂度：O(n*K)
+    特殊输入：原链表为空，原链表只有1个节点，k=0
+     */
+    private static ListNode rotateRight(ListNode head, int k) {
+        if(head==null) return null;
+        if(k==0) return head;
+        ListNode node=head;
+        ListNode headNode=head;
+        int listNum=1;
+        while(node.next!=null){
+            node=node.next;
+            listNum++;
+        }
+        for (int i = 0; i < k%listNum; i++) {
+            headNode=rotateRightOnlyOnce(headNode);
+        }
+        return headNode;
+    }
+
+    private static ListNode rotateRightOnlyOnce(ListNode head) {
+        if(head==null) return null;
+        ListNode prev=null;
+        ListNode node=head;
+        ListNode headNode=head;
+        while(node.next!=null){
+            prev=node;
+            node=node.next;
+        }
+        if(prev==null) return head;
+        node.next=headNode;
+        prev.next=null;
+        headNode=node;
+        return headNode;
+    }
+
+
 
     //创建空链表，返回头结点
     public static ListNode createLinkedList(ListNode head){
@@ -297,5 +338,7 @@ public class LinkedList2_19_21_24_25 {
        prev=listNode;
        return prev;
     }
+
+
 
 }
