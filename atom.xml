@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linchisin.com/"/>
-  <updated>2020-02-16T16:37:10.724Z</updated>
+  <updated>2020-02-16T16:38:47.466Z</updated>
   <id>http://linchisin.com/</id>
   
   <author>
@@ -16,14 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://linchisin.com/2020/02/14/moments-in-2019/"/>
-    <id>http://linchisin.com/2020/02/14/moments-in-2019/</id>
-    <published>2020-02-14T15:48:32.000Z</published>
-    <updated>2020-02-16T16:37:10.724Z</updated>
+    <title>Moments</title>
+    <link href="http://linchisin.com/2020/01/31/moments-in-2019/"/>
+    <id>http://linchisin.com/2020/01/31/moments-in-2019/</id>
+    <published>2020-01-30T16:00:00.000Z</published>
+    <updated>2020-02-16T16:38:47.466Z</updated>
     
-    <content type="html"><![CDATA[<p>title: Moments<br>date: 2020-1-31  #文章生成时间，一般不改，当然也可以任意修<br>categories: 随笔</p>
-<p><img src="https://i.loli.net/2020/02/16/hJouVSdvXxDCtsR.jpg" alt="栀子花开了.jpg"></p>
+    <content type="html"><![CDATA[<p><img src="https://i.loli.net/2020/02/16/hJouVSdvXxDCtsR.jpg" alt="栀子花开了.jpg"></p>
 <center><em>3月，开始上班后的第三天，屋子里的栀子花开了。此后却因为无暇照料，很快枯死了</em></center>
 
 <p><img src="https://s2.ax1x.com/2020/02/17/39IKYj.jpg" alt="39IKYj.jpg"></p>
@@ -97,10 +96,12 @@
     
     <summary type="html">
     
-      &lt;p&gt;title: Moments&lt;br&gt;date: 2020-1-31  #文章生成时间，一般不改，当然也可以任意修&lt;br&gt;categories: 随笔&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/02/16/hJouVSdvXxDCtsR
+      &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/02/16/hJouVSdvXxDCtsR.jpg&quot; alt=&quot;栀子花开了.jpg&quot;&gt;&lt;/p&gt;
+&lt;center&gt;&lt;em&gt;3月，开始上班后的第三天，屋子里的栀子花开了。此后却因为无暇照料，很快枯死了&lt;/em&gt;
     
     </summary>
+    
+      <category term="随笔" scheme="http://linchisin.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
