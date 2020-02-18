@@ -1,0 +1,50 @@
+# config
+cover: /img/bg_img.jpg
+logo: /img/logo.png
+top_saying:
+- title:  <span>  渡海编舟    </span> 
+- content:
+bottom_saying: 
+# Content
+excerpt_link: Read More
+
+rss: /atom.xml
+
+highlightjs: vs
+
+#Works
+#works:
+#- works_name: AAA
+#  works_url: /
+#- works_name: BBB
+ # works_url: /atom.xml
+
+#duoshuo name
+duoshuo: duoshuo_name
+
+# Hypercomments
+hypercomments_id: 100841
+
+# Miscellaneous
+github: https://github.com/LinChiSin
+twitter: https://twitter.com/LinChiSin
+facebook: https://www.facebook.com/profile.php?id=100004933488976
+google: https://google.com/
+fanfou: https://fanfou.com/LinChiSin
+weibo: http://weibo.com/LinChiSin
+email: mailto:hey@linchisin.com
+
+#Links
+links:
+- name: 刘炯
+  link: http://liujiong.com/  
+- name: 仲树
+  link: http://screamingbeetle.com/
+- name: 胡贝侨
+  link: http://hubeiqiao.com
+- name: Root Lee
+  link: http://irootlee.com/
+- name: kitten Yang
+  link: http://kittenyang.com/
+
+

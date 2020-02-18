@@ -1,0 +1,39 @@
+
+<!-- ============================ Footer =========================== -->
+
+<footer>
+     
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>  ,        ❥ 林志兴
+                </p>
+                <p>框架 - <a href="//hexo.io" style="color: #767D84">Hexo</a> | 主题 - <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                     <% if(theme.google){ %>
+                     <li><a href="<%- theme.google %>" title="Google" target="_blank"><i class="fab fa-google"></i></a></li>
+                     <% } %>
+                    <% if(theme.github){ %>
+                    <li><a href="<%- theme.github %>" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>&nbsp;</li>
+                    <% } %>
+                    <% if(theme.facebook){ %>
+                    <li><a href="<%- theme.facebook %>" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>&nbsp;</li>
+                    <% } %>
+                    <% if(theme.weibo){ %>
+                    <li><a href="<%- theme.weibo %>" title="Weibo" target="_blank"><i class="fab fa-weibo"></i></a>&nbsp;</li>
+                    <% } %>
+                     <% if(theme.fanfou){ %>
+                      <li><a href="<%- theme.fanfou %>" title="Fanfou" target="_blank"><i class="fas fa-edit"></i></a></li>
+                      <% } %>
+                     <% if(theme.email){ %>
+                      <li><a href="<%- theme.email %>" title="Email" target="_blank"><i class="fas fa-envelope"></i></a></li>
+                      <% } %>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
