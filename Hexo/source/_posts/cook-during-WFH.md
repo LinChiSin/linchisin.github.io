@@ -8,6 +8,6 @@ categories: 随笔
 
 ![做菜合集.jpg](https://i.loli.net/2020/02/23/enTp7fgax9KdHzr.jpg)
 
-<center>iPhone Xs拍摄，原片有压缩，无滤镜。</center>
+<center>iPhone Xs拍摄，原片有压缩。</center>
 
 
