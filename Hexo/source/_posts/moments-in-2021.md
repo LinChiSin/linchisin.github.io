@@ -1,6 +1,6 @@
 title: Moments in 2021
 date: 2022-1-1  #文章生成时间，一般不改，当然也可以任意修
-categories: 随笔
+categories: Album
 
 ---
 

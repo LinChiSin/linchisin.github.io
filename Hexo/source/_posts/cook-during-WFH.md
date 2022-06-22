@@ -1,6 +1,6 @@
 title: 在家办公期间做菜合集
 date: 2020-02-23  #文章生成时间，一般不改，当然也可以任意修
-categories: 随笔
+categories: Album
 
 ---
 

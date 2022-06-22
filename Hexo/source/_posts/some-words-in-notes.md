@@ -1,6 +1,6 @@
 title: 躺在便签里的一些话
 date: 2020-1-28  #文章生成时间，一般不改，当然也可以任意修
-categories: 文摘
+categories: 随笔
 
 
 ---

@@ -1,6 +1,6 @@
 title: 2022年春节
 date: 2022-2-8  #文章生成时间，一般不改，当然也可以任意修
-categories: 随笔
+categories: Album
 
 ---
 
