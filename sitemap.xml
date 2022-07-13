@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://linchisin.com/2022/06/23/five-years/</loc>
+    <loc>http://linchisin.com/2022/02/08/spring-festival-in-2022/</loc>
     
-    <lastmod>2022-06-22</lastmod>
+    <lastmod>2022-07-13</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linchisin.com/2022/02/08/spring-festival-in-2022/</loc>
+    <loc>http://linchisin.com/2022/01/01/moments-in-2021/</loc>
+    
+    <lastmod>2022-07-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linchisin.com/2022/07/03/h1-2022/</loc>
+    
+    <lastmod>2022-07-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linchisin.com/2022/06/23/five-years/</loc>
     
     <lastmod>2022-06-22</lastmod>
     
@@ -30,15 +48,6 @@
   
   <url>
     <loc>http://linchisin.com/2019/06/25/reply-to-zhiliang/</loc>
-    
-    <lastmod>2022-06-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linchisin.com/2022/01/01/moments-in-2021/</loc>
     
     <lastmod>2022-06-22</lastmod>
     
@@ -211,7 +220,7 @@
 
   <url>
     <loc>http://linchisin.com/</loc>
-    <lastmod>2022-06-22</lastmod>
+    <lastmod>2022-07-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -221,21 +230,21 @@
   
   <url>
     <loc>http://linchisin.com/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-06-22</lastmod>
+    <lastmod>2022-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://linchisin.com/categories/%E6%96%87%E6%91%98/</loc>
-    <lastmod>2022-06-22</lastmod>
+    <lastmod>2022-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://linchisin.com/categories/Album/</loc>
-    <lastmod>2022-06-22</lastmod>
+    <lastmod>2022-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
